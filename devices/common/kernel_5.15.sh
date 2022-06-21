@@ -24,6 +24,8 @@ svn co https://github.com/coolsnowwolf/lede/trunk/target/linux/generic/hack-5.15
 rm -rf target/linux/generic/hack-5.15/{220-gc_sections*,781-dsa-register*,780-drivers-net*}
 curl -sfL https://raw.githubusercontent.com/openwrt/openwrt/openwrt-22.03/package/kernel/linux/modules/video.mk -o package/kernel/linux/modules/video.mk
 
+sed -i "s/tty\(0\|1\)::askfirst/tty\1::respawn/g" target/linux/*/base-files/etc/inittab
+
 echo "
 CONFIG_TESTING_KERNEL=y
 CONFIG_PACKAGE_kmod-ipt-coova=n
