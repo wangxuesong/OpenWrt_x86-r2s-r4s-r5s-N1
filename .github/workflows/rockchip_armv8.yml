@@ -257,12 +257,12 @@ jobs:
       uses: ncipollo/release-action@v1.8.0
       if: env.REPO_TOKEN && env.UPLOAD_FIRMWARE_FOR_RELEASE == 'true'
       with:
-        name: openwrt-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
+        name: openwrt-${{matrix.target}}
         allowUpdates: true
         replacesArtifacts: true
-        tag: ${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
-        body: ${{ env.BUILD_DATE }}
-        commit: ${{ env.CURRENT_BRANCH }}
+        tag: ${{matrix.target}}
+        body: ${{ env.date }}
+        commit: ${{ env.date2 }}
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: openwrt/bin/targets/*
 
