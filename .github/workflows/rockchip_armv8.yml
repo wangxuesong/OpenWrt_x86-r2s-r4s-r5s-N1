@@ -260,7 +260,7 @@ jobs:
         name: openwrt-${{matrix.target}}
         allowUpdates: true
         replacesArtifacts: true
-        # tag: ${{matrix.target}}
+        tag: r2s
         body: ${{ env.date }}
         commit: ${{ env.date2 }}
         token: ${{ secrets.GITHUB_TOKEN }}
